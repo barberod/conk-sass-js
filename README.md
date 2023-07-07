@@ -1,4 +1,4 @@
-# wink-sass-js
+# conk-sass-js
 
 Generates and maintains Bootstrap files suitable for business portal.
 
@@ -13,7 +13,7 @@ Include [Bootstrap](https://getbootstrap.com)'s source Sass and compiled JavaScr
 ## How to use
 
 ```sh
-git clone https://github.com/barberod/wink-sass-js.git
+git clone https://github.com/barberod/conk-sass-js.git
 npm install
 npm start
 ```
