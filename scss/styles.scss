@@ -1,0 +1,659 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+@import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+
+// values unique to wink theme
+$white: #ffffff;
+$gray-100: #f4f4f4;
+$gray-200: #e0e0e0;
+$gray-300: #c6c6c6;
+$gray-400: #a8a8a8;
+$gray-500: #8d8d8d;
+$gray-600: #6f6f6f;
+$gray-700: #525252;
+$gray-800: #393939;
+$gray-900: #262626; // overwritten
+
+$amber: #cca300;
+$amber-link: #ffd632;
+$amber-link-hover: #ffe066;
+$amber-dark: #997a00;
+$amber-faint: #665100;
+$amber-black: #282000;
+$gray-900: #100c00;
+
+$black: #161616;
+$blue: #0f62fe;
+$indigo: #881798;
+$purple: #8a3ffc;
+$pink: #e3008c;
+$red: #da1e28;
+$orange: #ffaa44;
+$yellow: #f1c21b;
+$green: #24a148;
+$teal: #20c997;
+$cyan: #9954BB;
+$primary: $blue;
+$secondary: $gray-800;
+$success: $green;
+$info: $purple;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-800;
+$navbar-dark-hover-color: rgba($white,1);
+$enable-rounded: false;
+$border-radius-base: 0;
+$body-bg: $gray-100;
+$body-color: $gray-800;
+$navbar-light-toggler-border-color: rgba($black, .3);
+$border-color: $gray-500;
+$card-border-color: $gray-500;
+$pagination-border-color: $gray-400;
+$list-group-border-color: $gray-400;
+$link-hover-color: darken($blue, 40%);
+$breadcrumb-divider-color: $gray-800;
+$breadcrumb-active-color: $gray-800;
+
+$color-mode-type: data;
+
+@include color-mode(light) {
+
+  body {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    background-color: $gray-100;
+  }
+
+  h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+    font-weight: 700;
+  }
+
+  header.navbar-main,
+  .sidebar {
+    background-color: $gray-100;
+  }
+
+  .sidebar nav .dropdown-menu.show a.dropdown-item:hover,
+  .sidebar nav .dropdown-menu.show a.dropdown-item:focus {
+    background-color: $blue;
+    color: $white;
+    text-decoration: none;
+  }
+
+  .title.border-bottom {
+    border-bottom: 0.15rem dotted $gray-500 !important;
+  }
+
+  button.nav-link.active {
+    background-color: $dark;
+  }
+
+  button.nav-link {
+    background-color: $gray-200;
+  }
+
+  .nav-pills .nav-link:hover {
+    background-color: $primary;
+    color: $white;
+  }
+
+  .text-muted {
+    color: $gray-500 !important;
+  }
+
+  .card {
+    border: 0px solid transparent;
+  }
+
+  .card-header {
+    color: $black;
+    font-weight: 700;
+    background-color: $white;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 0.1rem dashed $gray-300;
+  }
+
+  .card-body {
+    color: $black;
+    background-color: $white;
+    padding: 2rem 1rem;
+  }
+
+  .navbar-toggler:hover {
+    background-color: $gray-200;
+  }
+
+  #navbar-site-name {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@include color-mode(dark) {
+
+  body {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    color: $amber;
+    background-color: $gray-900;
+  }
+
+  h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  small {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  a {
+    color: $amber-link;
+  }
+
+  a:hover,
+  a:focus {
+    color: $amber-link-hover;
+    text-decoration: underline;
+  }
+
+  header.navbar-main {
+    background-color: $gray-900;
+  }
+
+  .breadcrumb {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-bottom: 1rem;
+  }
+
+  .sidebar {
+    background-color: $gray-900;
+  }
+  .sidebar.border-end {
+    border-color: $amber-faint !important;
+  }
+
+  .title.border-bottom {
+    border-bottom: 0.3rem double $amber !important;
+  }
+
+  .nav-pills .nav-link {
+    color: $amber-link;
+  }
+
+  .nav-pills .nav-link:focus,
+  .nav-pills .nav-link:hover {
+    color: $amber-link-hover;
+  }
+
+  .nav-pills .nav-link.active {
+    color: $gray-900;
+    background-color: $amber;
+    border-color: $amber;
+  }
+
+  .text-muted {
+    color: $amber-dark !important;
+  }
+
+  .card {
+    border: 0px solid transparent;
+  }
+
+  .card-header {
+    color: $amber;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: $gray-900;
+    padding: 1rem 0;
+    margin: 0;
+    border-bottom: 0.1rem dotted $amber;
+  }
+
+  .card-body {
+    color: $amber;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: $gray-900;
+    padding: 1.5rem 0;
+  }
+
+  .navbar-toggler {
+    border-color: $amber-faint;
+  }
+
+  .navbar-toggler:hover {
+    background-color: $gray-900;
+  }
+
+  .table {
+    background-color: $gray-900;
+    --bs-table-color: $amber;
+    --bs-table-striped-color: $amber;
+    --bs-table-active-color: $amber;
+    --bs-table-hover-color: $amber;
+  }
+
+  thead, tbody, tfoot, tr, td, th {
+    background-color: $gray-900;
+    border-color: $amber-faint;
+  }
+
+  .table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: $amber-black;
+  }
+
+  .btn-outline-primary:not(:hover),
+  .btn-outline-secondary:not(:hover),
+  .btn-outline-success:not(:hover),
+  .btn-outline-danger:not(:hover),
+  .btn-outline-warning:not(:hover),
+  .btn-outline-info:not(:hover),
+  .btn-outline-dark:not(:hover),
+  .btn-outline-light:not(:hover) {
+    background-color: $gray-900;
+    color: $amber;
+    border-color: $amber;
+  }
+
+  .btn-outline-primary:focus,
+  .btn-outline-secondary:focus,
+  .btn-outline-success:focus,
+  .btn-outline-danger:focus,
+  .btn-outline-warning:focus,
+  .btn-outline-info:focus,
+  .btn-outline-dark:focus,
+  .btn-outline-light:focus,
+  .btn-outline-primary:hover,
+  .btn-outline-secondary:hover,
+  .btn-outline-success:hover,
+  .btn-outline-danger:hover,
+  .btn-outline-warning:hover,
+  .btn-outline-info:hover,
+  .btn-outline-dark:hover,
+  .btn-outline-light:hover {
+    background-color: $amber;
+    color: $gray-900;
+    border-color: $amber;
+  }
+
+  .btn-primary:not(:hover),
+  .btn-secondary:not(:hover),
+  .btn-success:not(:hover),
+  .btn-danger:not(:hover),
+  .btn-warning:not(:hover),
+  .btn-info:not(:hover),
+  .btn-dark:not(:hover),
+  .btn-light:not(:hover) {
+    background-color: $amber;
+    color: $gray-900;
+    border-color: $amber;
+  }
+
+  .btn-primary:focus,
+  .btn-secondary:focus,
+  .btn-success:focus,
+  .btn-danger:focus,
+  .btn-warning:focus,
+  .btn-info:focus,
+  .btn-dark:focus,
+  .btn-light:focus,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-success:hover,
+  .btn-danger:hover,
+  .btn-warning:hover,
+  .btn-info:hover,
+  .btn-dark:hover,
+  .btn-light:hover {
+    background-color: $amber-link-hover;
+    color: $gray-900;
+    border-color: $amber-link-hover;
+  }
+
+  .form-select,
+  .form-control {
+    background-color: $gray-900;
+    color: $amber;
+    border-color: $amber;
+  }
+
+  .form-control::placeholder {
+    color: $amber;
+    opacity: 1;
+  }
+  .form-control:-ms-input-placeholder {
+    color: $amber;
+  }
+  .form-control::-ms-input-placeholder {
+    color: $amber;
+  }
+
+  .form-select {
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23997a00' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  }
+
+  .breadcrumb-item.active {
+    color: $amber-dark;
+  }
+  .breadcrumb-item+.breadcrumb-item::before {
+    color: $amber-dark;
+  }
+
+  .page-link {
+    border-color: $amber-faint;
+  }
+  a.page-link {
+    color: $amber;
+    background-color: $gray-900;
+  }
+  a.page-link:hover,
+  a.page-link:focus {
+    color: $gray-900;
+    background-color: $amber;
+    text-decoration: none;
+  }
+
+  .sidebar nav .dropdown-menu.show a.dropdown-item:focus,
+  .sidebar nav .dropdown-menu.show a.dropdown-item:hover {
+    color: $gray-900;
+    background-color: $amber;
+    border-color: $amber;
+    text-decoration: none;
+  }
+
+  .alert-primary,
+  .alert-secondary,
+  .alert-success,
+  .alert-info,
+  .alert-light,
+  .alert-dark {
+    color: $amber;
+    background-color: $gray-900;
+    border-color: $amber;
+  }
+
+  .alert-danger,
+  .alert-warning {
+    color: $gray-900;
+    background-color: $amber;
+    border-color: $amber-link-hover;
+  }
+
+  .alert-primary a.alert-link,
+  .alert-secondary a.alert-link,
+  .alert-success a.alert-link,
+  .alert-danger a.alert-link,
+  .alert-warning a.alert-link,
+  .alert-info a.alert-link,
+  .alert-light a.alert-link,
+  .alert-dark a.alert-link {
+    color: $amber;
+  }
+
+  .alert-danger a.alert-link,
+  .alert-warning a.alert-link {
+    color: $gray-900;
+  }
+
+  #navbar-main.border-bottom {
+    border-color: $amber-faint !important;
+  }
+
+  #navbar-logo-area.border-end {
+    border-color: $amber-faint !important;
+  }
+
+  #navbar-site-name {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-size: 1rem !important;
+    font-weight: 500;
+  }
+}
+
+//
+// Custom styles
+//
+
+@import "icon-list";
+
+table th a[sort="asc"]:after {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f0d8";
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+table th a[sort="desc"]:after {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f0d7";
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.sidebar nav {
+  width: 100%;
+}
+.sidebar nav .dropdown.nav-item:has(.dropdown-menu.show) {
+  font-weight: 700;
+}
+.sidebar nav .dropdown-menu.show {
+  background-color: transparent;
+  border: 0 solid transparent;
+  display: block;
+  position: relative !important;
+  transform: none !important;
+  width: 100%;
+}
+.sidebar nav .dropdown-menu.show a.dropdown-item {
+  display: block;
+  padding-left: 2rem;
+  width: 100%;
+}
+
+.icon-link {
+  display: block;
+}
+@include media-breakpoint-down(lg) {
+  .icon-link {
+    display: inline-flex;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .icon-link {
+    display: block;
+  }
+}
+
+.scroll-top {
+  position: fixed;
+  height: 3.5rem;
+  width: 3.5rem;
+  bottom: 3.5rem;
+  right: 1.5rem;
+  z-index: 99;
+  outline: none;
+  color: #ffffff;
+  background-color: rgba(0, 120, 212,.55);
+  border: 0px solid transparent;
+  cursor: pointer;
+  padding: .65rem 0;
+  border-radius: .2rem;
+  margin: 0 auto;
+}
+.scroll-top:focus,
+.scroll-top:hover {
+  background-color: rgba(0, 120, 212,.85);
+}
+@include color-mode(dark) {
+  .scroll-top {
+    color: #262626;
+    background-color: rgba(204,163,0,.55);
+    border-radius: 0rem;
+  }
+  .scroll-top:focus,
+  .scroll-top:hover {
+    background-color: rgba(204,163,0,.85);
+  }
+}
+
+.is-visible {
+  display: block;
+}
+.is-hidden {
+  display: none;
+}
+
+.bd-mode-toggle {
+  position: fixed;
+  height: 2rem;
+  width: 3.5rem;
+  bottom: 1rem;
+  right: 1.5rem;
+  z-index: 98;
+  outline: none;
+  margin: 0 auto;
+}
+.bd-mode-toggle .btn {
+  width: 100%;
+  color: rgba(0, 120, 212, 1);
+  background-color: transparent;
+  border: 0px solid transparent;
+  cursor: pointer;
+  border-radius: .2rem;
+}
+.bd-mode-toggle .btn:hover {
+  color: #ffffff;
+  background-color: rgba(0, 120, 212,.85);
+}
+.bd-mode-toggle button.dropdown-toggle svg use {
+  fill: rgba(0, 120, 212, 1);
+}
+.bd-mode-toggle button.dropdown-toggle:hover svg use {
+  fill: #ffffff;
+}
+.bd-mode-toggle button.dropdown-item svg use {
+  fill: #323130;
+}
+@include color-mode(dark) {
+  .bd-mode-toggle .btn {
+    color: rgba(204,163,0, 1);
+  }
+  .bd-mode-toggle .btn:hover {
+    color: #262626;
+    background-color: rgba(204,163,0, 1);
+  }
+  .bd-mode-toggle button.dropdown-toggle svg use {
+    fill: rgba(204,163,0, 1);
+  }
+}
+
+#navbar-main {
+  height: 5rem;
+}
+#navbar-logo-area {
+  height: 5rem;
+  display: block;
+  background-color: transparent;
+  background-image: url("../img/logo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center, 50%, 50%;
+}
+@include media-breakpoint-down(md) {
+  #navbar-main,
+  #navbar-logo-area {
+    height: 4rem;
+  }
+}
+@include media-breakpoint-down(sm) {
+  #navbar-main {
+    height: 8rem;
+  }
+  #navbar-logo-area {
+    height: 4rem;
+    background-size: contain;
+  }
+}
+
+#accent-logo {
+  height: 6rem;
+  display: block;
+  background-color: transparent;
+  background-image: url("../img/logo2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center, 50%, 50%;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("../img/xmark.svg");
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  background-image: url("../img/hamburger.svg");
+}
+
+@include color-mode(dark) {
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("../img/xmark-dark.svg");
+  }
+  .navbar-toggler.collapsed .navbar-toggler-icon {
+    background-image: url("../img/hamburger-dark.svg");
+  }
+  #navbar-logo-area {
+    background-image: url("../img/logo-dark.svg");
+  }
+  #accent-logo {
+    background-image: url("../img/logo2-dark.svg");
+  }
+}
+
+.bg-warning {
+  --bs-bg-opacity: .5;
+  background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+}
